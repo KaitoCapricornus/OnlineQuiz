@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 18, 2019, 9:30:56 AM
+    Author     : dinht
+*/
+
+.body{
+    background: url(img/bg.jpg);
+    background-repeat: repeat-x;
+    padding: 20px 20px 20px 20px;
+}
+
+.containner{
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+    text-align: center;
+    height: 700px;
+    border-radius: 50px 50px 0px 0px;
+}
+
+.menu-bar{
+    background: url(img/menu_bg.gif);
+    background-size: 100% 100%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.menu-bar li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 16px;
+
+}
+
+.menu-bar a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: dimgray;
+}
+
+.menu-bar li:hover {
+    background: #ddd;
+    color: black;
+}
+
+.login-container{
+    display: inline-block;
+}
+
+.login-text{
+    font-family: sans-serif;
+    color: dimgray;
+}
+
+.login-header{
+    text-align: left;
+    font-family: sans-serif;
+    color: blue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.register{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: dimgray;
+}
