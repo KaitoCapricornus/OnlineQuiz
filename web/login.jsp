@@ -18,9 +18,10 @@
             <div class="menu-bar">
                 <ul>
                     <li><a href="home">Home</a></li>
-                    <li><a href="#">Take Quiz</a></li>
-                    <li><a href="#">Make Quiz</a></li>
-                    <li><a href="#">Manage Quiz</a></li>
+                    <li><a href="takequiz">Take Quiz</a></li>
+                    <li><a href="makequiz">Make Quiz</a></li>
+                    <li><a href="managequiz">Manage Quiz</a></li>
+                    <li><a href="logout" style="display: ${requestScope.user == null ? "none" : ""}">Logout</a></li>
                 </ul>
             </div>
             <div class="login-container">

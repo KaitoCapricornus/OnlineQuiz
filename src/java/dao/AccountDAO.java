@@ -51,7 +51,7 @@ public class AccountDAO extends BaseDAO<Account> {
     }
 
     @Override
-    public boolean insert(Account model) {
+    public boolean create(Account model) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

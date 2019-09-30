@@ -8,16 +8,16 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
 
 /**
  *
  * @author dinht
  */
-public class TakeQuizController extends HttpServlet {
+public class LogoutController extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -30,13 +30,17 @@ public class TakeQuizController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Account acc = (Account) request.getSession().getAttribute("user");
-        request.setAttribute("user", acc);
-        
-        
-        
-        
-        request.getRequestDispatcher("takequiz.jsp").forward(request, response);
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if(cookie.getName().equals("username")){
+                response.addCookie(new Cookie("username", null));
+            }
+            if(cookie.getName().equals("username")){
+                response.addCookie(new Cookie("username", null));
+            }
+        }
+        request.getSession(false).invalidate();
+        response.sendRedirect("/OnlineQuiz/login");
     }
 
     /**
@@ -52,4 +56,15 @@ public class TakeQuizController extends HttpServlet {
             throws ServletException, IOException {
 
     }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

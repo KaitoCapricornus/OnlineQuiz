@@ -37,7 +37,7 @@ public abstract class BaseDAO<T> {
 
     public abstract T get(String agr);
 
-    public abstract boolean insert(T model);
+    public abstract boolean create(T model);
 
     public abstract boolean update(T model);
 

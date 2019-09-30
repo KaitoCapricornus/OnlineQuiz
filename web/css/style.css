@@ -12,14 +12,16 @@ and open the template in the editor.
     background: url(img/bg.jpg);
     background-repeat: repeat-x;
     padding: 20px 20px 20px 20px;
+    height: 100%;
 }
 
 .containner{
     padding: 20px 20px 20px 20px;
     background-color: white;
     text-align: center;
-    height: 700px;
-    border-radius: 50px 50px 0px 0px;
+    height: 100%;
+    bottom: 10%;
+    border-radius: 50px 50px 50px 50px;
 }
 
 .menu-bar{
@@ -72,4 +74,12 @@ and open the template in the editor.
     text-decoration: none;
     font-family: sans-serif;
     color: dimgray;
+}
+
+#manage-table{
+    padding: 20px auto;
+}
+
+#manage-table tr, td{
+    padding: 20px auto;
 }

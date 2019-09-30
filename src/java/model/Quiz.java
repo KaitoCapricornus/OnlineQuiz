@@ -6,27 +6,37 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author dinht
  */
 public class Quiz{
-    private int quiz_id;
+    private int quizID;
     private String creater;
     private String question;
-    private String option_A;
-    private String option_B;
-    private String option_C;
-    private String option_D;
-    private ArrayList<String> answers;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private List<String> answers;
+    private String createdDate;
 
-    public int getQuiz_id() {
-        return quiz_id;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
-    public void setQuiz_id(int quiz_id) {
-        this.quiz_id = quiz_id;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public int getQuizID() {
+        return quizID;
+    }
+
+    public void setQuizID(int quizID) {
+        this.quizID = quizID;
     }
 
     public String getCreater() {
@@ -45,43 +55,43 @@ public class Quiz{
         this.question = question;
     }
 
-    public String getOption_A() {
-        return option_A;
+    public String getOption1() {
+        return option1;
     }
 
-    public void setOption_A(String option_A) {
-        this.option_A = option_A;
+    public void setOption1(String option1) {
+        this.option1 = option1;
     }
 
-    public String getOption_B() {
-        return option_B;
+    public String getOption2() {
+        return option2;
     }
 
-    public void setOption_B(String option_B) {
-        this.option_B = option_B;
+    public void setOption2(String option2) {
+        this.option2 = option2;
     }
 
-    public String getOption_C() {
-        return option_C;
+    public String getOption3() {
+        return option3;
     }
 
-    public void setOption_C(String option_C) {
-        this.option_C = option_C;
+    public void setOption3(String option3) {
+        this.option3 = option3;
     }
 
-    public String getOption_D() {
-        return option_D;
+    public String getOption4() {
+        return option4;
     }
 
-    public void setOption_D(String option_D) {
-        this.option_D = option_D;
+    public void setOption4(String option4) {
+        this.option4 = option4;
     }
 
-    public ArrayList<String> getAnswers() {
+    public List<String> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(ArrayList<String> answers) {
+    public void setAnswers(List<String> answers) {
         this.answers = answers;
     }
 }
