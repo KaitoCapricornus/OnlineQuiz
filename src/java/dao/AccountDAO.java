@@ -41,6 +41,7 @@ public class AccountDAO extends BaseDAO<Account> {
                 acc.setUsername(rs.getString("username"));
                 acc.setPassword(rs.getString("password"));
                 acc.setUser_type(rs.getByte("user_type"));
+                acc.setEmail(rs.getString("email"));
                 return acc;
             }
 
@@ -52,7 +53,19 @@ public class AccountDAO extends BaseDAO<Account> {
 
     @Override
     public boolean create(Account model) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            String sql = "INSERT INTO [Account] VALUES (?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, model.getUsername());
+            statement.setString(2, model.getPassword());
+            statement.setByte(3, model.getUser_type());
+            statement.setString(4, model.getEmail());
+            statement.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

@@ -76,10 +76,19 @@ and open the template in the editor.
     color: dimgray;
 }
 
-#manage-table{
-    padding: 20px auto;
+.register-container{
+    display: inline-block;
 }
 
-#manage-table tr, td{
-    padding: 20px auto;
+.register-text{
+    font-family: sans-serif;
+    color: dimgray;
+}
+
+.register-header{
+    text-align: left;
+    font-family: sans-serif;
+    color: blue;
+    font-size: 30px;
+    font-weight: bold;
 }

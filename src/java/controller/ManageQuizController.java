@@ -20,7 +20,7 @@ import model.Quiz;
  *
  * @author dinht
  */
-public class ManageQuiz extends HttpServlet {
+public class ManageQuizController extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.

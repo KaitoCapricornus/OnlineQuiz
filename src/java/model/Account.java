@@ -13,6 +13,15 @@ public class Account {
     private String username;
     private String password;
     private byte user_type;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;

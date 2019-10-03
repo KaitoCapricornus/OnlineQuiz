@@ -50,7 +50,7 @@
                             <td></td>
                             <td style="text-align: left">
                                 <input type="submit" value="Sign in"/>&nbsp;
-                                <a href="#" class="register">Register</a>
+                                <a href="register" class="register">Register</a>
                             </td>
                         </tr>
                     </table>
