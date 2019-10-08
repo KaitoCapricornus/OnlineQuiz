@@ -21,8 +21,6 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Account acc  = (Account) request.getSession().getAttribute("user");
-        request.setAttribute("user", acc);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

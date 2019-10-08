@@ -7,19 +7,19 @@ package controller;
 
 import dao.QuizDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Account;
 import model.Quiz;
 
 /**
  *
  * @author dinht
  */
-public class ManageQuizController extends HttpServlet {
+public class TakeNumberOfQuestionController extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -32,11 +32,7 @@ public class ManageQuizController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Account acc = (Account) request.getSession().getAttribute("user");
-        QuizDAO quizDAO = new QuizDAO();
-        List<Quiz> quizs = quizDAO.getAllQuizByCreater(acc.getUsername());
-        request.setAttribute("quizs", quizs);
-        request.getRequestDispatcher("/managequiz.jsp").forward(request, response);
+        request.getRequestDispatcher("take_number_of_question.jsp").forward(request, response);
     }
 
     /**
@@ -50,7 +46,27 @@ public class ManageQuizController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String rawNoQuestion = request.getParameter("NoQuestion");
+        int noQuestion;
+        try {
+            noQuestion = Integer.parseInt(rawNoQuestion);
+        } catch (NumberFormatException e) {
+            noQuestion = 0;
+        }
+        if (noQuestion <= 0) {
+            PrintWriter pw = response.getWriter();
+            pw.println("<script type=\"text/javascript\">");
+            pw.println("alert('Number of question must be a possitive number!!!');");
+            pw.println("</script>");
+            request.getRequestDispatcher("take_number_of_question.jsp").include(request, response);
+        } else {
+            request.getSession(false).setAttribute("noQuestion", noQuestion);
+            QuizDAO quizDAO = new QuizDAO();
+            List<Quiz> quizs = quizDAO.getNumberOfQuiz(noQuestion);
+            request.getSession(false).setAttribute("quizs", quizs);
+            request.getSession().setMaxInactiveInterval(90 * noQuestion);
+            request.getRequestDispatcher("takequiz.jsp").forward(request, response);
+        }
     }
 
     /**

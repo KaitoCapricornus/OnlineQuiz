@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Sep 18, 2019, 9:24:18 AM
+    Document   : take_number_of_question
+    Created on : Oct 8, 2019, 8:37:18 AM
     Author     : dinht
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <title>Take Number Of Question Page</title>
         <style><%@include file="css/style.css" %></style>
     </head>
     <body class="body">
@@ -25,6 +25,13 @@
                 </ul>
             </div>
             <h2>Welcome ${sessionScope.user.getUsername()}</h2>
+            <div>
+                <form action="takenoquestion" method="POST">
+                    Enter number of question:<br/>
+                    <input type="number" name="NoQuestion"/><br/>
+                    <input type="submit" value="Start"/>
+                </form>
+            </div>
         </div>
     </body>
 </html>

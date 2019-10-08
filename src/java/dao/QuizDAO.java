@@ -56,10 +56,50 @@ public class QuizDAO extends BaseDAO<Quiz> {
                 PreparedStatement statementAnswer = connection.prepareStatement(sqlAnswer);
                 statementAnswer.setInt(1, quiz.getQuizID());
                 ResultSet rsAns = statementAnswer.executeQuery();
-                while(rsAns.next()){
+                while (rsAns.next()) {
                     answers.add(rsAns.getString("answer"));
                 }
                 quiz.setAnswers(answers);
+                quizs.add(quiz);
+            }
+            return quizs;
+        } catch (SQLException ex) {
+            Logger.getLogger(QuizDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public List<Quiz> getNumberOfQuiz(int noQuiz) {
+        try {
+            List<Quiz> quizs = new ArrayList();
+            String sql = "SELECT TOP 10 q.*, qa.answer FROM Quiz q inner join Quiz_Ans qa on q.quiz_id = qa.quiz_id\n"
+                    + "ORDER BY NEWID()";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, noQuiz);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Quiz quiz = new Quiz();
+                quiz.setQuizID(rs.getInt("quiz_id"));
+                quiz.setCreater(rs.getString("creater"));
+                quiz.setQuestion(rs.getString("question"));
+                quiz.setOption1(rs.getString("option_1"));
+                quiz.setOption2(rs.getString("option_2"));
+                quiz.setOption3(rs.getString("option_3"));
+                quiz.setOption4(rs.getString("option_4"));
+                SimpleDateFormat dfm = new SimpleDateFormat("dd MMM yyyy - hh:mm a");
+                String createdDate = dfm.format(rs.getDate("createdDate"));
+                quiz.setCreatedDate(createdDate);
+
+                List<String> answers = new ArrayList();
+                String sqlAnswer = "select * from Quiz_Ans where quiz_id = ?";
+                PreparedStatement statementAnswer = connection.prepareStatement(sqlAnswer);
+                statementAnswer.setInt(1, quiz.getQuizID());
+                ResultSet rsAns = statementAnswer.executeQuery();
+                while (rsAns.next()) {
+                    answers.add(rsAns.getString("answer"));
+                }
+                quiz.setAnswers(answers);
+                
                 quizs.add(quiz);
             }
             return quizs;

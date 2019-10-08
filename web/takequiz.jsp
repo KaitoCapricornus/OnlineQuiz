@@ -18,13 +18,16 @@
             <div class="menu-bar">
                 <ul>
                     <li><a href="home">Home</a></li>
-                    <li><a href="takequiz">Take Quiz</a></li>
+                    <li><a href="takenoquestion">Take Quiz</a></li>
                     <li><a href="makequiz">Make Quiz</a></li>
                     <li><a href="managequiz">Manage Quiz</a></li>
-                    <li><a href="logout" style="display: ${requestScope.user == null ? "none" : ""}">Logout</a></li>
+                    <li><a href="logout" style="display: ${sessionScope.user == null ? "none" : ""}">Logout</a></li>
                 </ul>
             </div>
-            <h2>Welcome ${requestScope.user.getUsername()}</h2>
+                    <h2>Welcome ${sessionScope.user.getUsername()}</h2>
+            <div>
+                
+            </div>
         </div>
     </body>
 </html>
